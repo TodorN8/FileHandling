@@ -1,0 +1,31 @@
+using System;
+using System.IO;
+class FileHandling
+{
+    //Your task will be to create two folders with todays date and your name (e.g. 03OCT_JohnDoe)
+    //and then move a file from one folder to the other. Then you will attach your solution
+    //here in this assignment and will get back to completing the file handling exercises that were initially posted on classroom.
+
+    public static void Main()
+    {
+        try{
+        string folder1 = @"/home/tnedev24/07October_TodorNedev";
+        string folder2 = @"/home/tnedev24/07October_VictorACL";
+
+        File.Create(folder1);
+
+        using (StreamWriter write = File.CreateText(folder1))
+        {
+            write.WriteLine("text");
+            write.Close();
+        }
+
+        File.Move(folder1, folder2);
+        }
+
+        catch (Exception e)
+        {
+            Console.WriteLine(e.ToString());
+        }
+    }
+}
