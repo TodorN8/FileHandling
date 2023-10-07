@@ -9,19 +9,21 @@ class FileHandling
     public static void Main()
     {
         try{
-        string folder1 = @"/home/tnedev24/07October_TodorNedev";
-        string folder2 = @"/home/tnedev24/07October_VictorACL";
+        string path1 = @"/home/tnedev24/07October_TodorNedev";
+        string path2 = @"/home/tnedev24/07October_VictorACL";
 
-        File.Create(folder1);
-        File.Create(folder2);
+        DirectoryInfo dir1 = Directory.CreateDirectory(path1);
+        DirectoryInfo dir2 = Directory.CreateDirectory(path2);
 
-        using (StreamWriter write = File.CreateText(folder1))
-        {
-            write.WriteLine("text");
+        string file1 = $"{path1}/File.txt";
+        string file2 = $"{path2}/File.txt";
+
+        StreamWriter write = File.CreateText(file1);
+            write.WriteLine("something");
             write.Close();
-        }
 
-        File.Move(folder1, folder2);
+        File.Move(file1, file2);
+
         }
 
         catch (Exception e)
