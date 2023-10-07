@@ -13,6 +13,7 @@ class FileHandling
         string folder2 = @"/home/tnedev24/07October_VictorACL";
 
         File.Create(folder1);
+        File.Create(folder2);
 
         using (StreamWriter write = File.CreateText(folder1))
         {
